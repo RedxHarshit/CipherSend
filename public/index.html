@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherSend - The Private Way to Share Files</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🔐</div>
+                <span class="logo-text">CipherSend</span>
+            </div>
+            
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-checkbox">
+                    <input type="checkbox" id="theme-checkbox">
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div class="hero-section" id="hero-section">
+            <h1 class="hero-title">The Private Way to Share Files</h1>
+            <p class="hero-subtitle">No sign in. No cloud storage. No limits. Just pure peer-to-peer file transfer.</p>
+        </div>
+
+        <!-- Transfer Card -->
+        <div class="transfer-card">
+            <!-- Role Selection -->
+            <div id="role-selection-container">
+                <h2 class="card-title">Secure P2P File Transfer</h2>
+                <p class="card-subtitle">Send and receive files of any size directly, with end-to-end encryption. No cloud storage.</p>
+                
+                <div class="transfer-buttons">
+                    <button id="initiate-send-button" class="transfer-btn send-btn">
+                        <span class="btn-text">Send</span>
+                    </button>
+                    <button id="initiate-receive-button" class="transfer-btn receive-btn">
+                        <span class="btn-text">Receive</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sender View -->
+            <div id="sender-view" style="display: none;">
+                <h2 class="card-title">Send Files</h2>
+                <p class="card-subtitle">Copy this code and send it to the receiver.</p>
+                
+                <div class="id-container">
+                    <input type="text" id="sender-id-input" class="share-code-input" placeholder="Generating..." readonly>
+                    <button id="copy-id-button" class="copy-btn">Copy</button>
+                </div>
+                
+                <div class="waiting-indicator">
+                    <div class="spinner"></div>
+                    <span class="waiting-text">Waiting for receiver to connect...</span>
+                </div>
+            </div>
+
+            <!-- Receiver View -->
+            <div id="receiver-view" style="display: none;">
+                <h2 class="card-title">Receive Files</h2>
+                <p class="card-subtitle">Paste the code you received from the sender below.</p>
+                
+                <div class="input-group">
+                    <input type="text" id="receiver-id-input" class="code-input" placeholder="Enter sender's code">
+                    <button id="connect-button" class="connect-btn">Connect</button>
+                </div>
+            </div>
+
+            <!-- File Transfer Container -->
+            <div id="file-transfer-container" style="display: none;">
+                <h2 class="card-title">File Transfer</h2>
+                
+                <div class="connection-info">
+                    <div class="connection-item">
+                        <span class="connection-label">Your ID:</span>
+                        <span id="local-id" class="connection-value">Waiting...</span>
+                    </div>
+                    <div class="connection-item">
+                        <span class="connection-label">Connected to:</span>
+                        <span id="remote-id" class="connection-value">Waiting...</span>
+                    </div>
+                </div>
+                
+                <div id="sender-file-controls" style="display: none;">
+                    <div class="file-upload-container">
+                        <input type="file" id="file-input">
+                        <label for="file-input" class="file-upload-label" id="file-label">
+                            <div class="upload-icon">📁</div>
+                            <span class="upload-text">Click to upload or drag and drop any file type or size file</span>
+                        </label>
+                    </div>
+                    <button id="send-button" class="send-file-btn" disabled>Send File</button>
+                </div>
+                
+                <div id="status-message" class="status-message"></div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">End-to-End Encrypted</h3>
+                <p class="feature-desc">Your files are encrypted on your device and can only be decrypted by the recipient.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Peer-to-Peer</h3>
+                <p class="feature-desc">Files are sent directly between devices, without passing through any server.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">∞</div>
+                <h3 class="feature-title">No Size Limits</h3>
+                <p class="feature-desc">Transfer files of any size, limited only by your device and network.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 CipherSend. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
